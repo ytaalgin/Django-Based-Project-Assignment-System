@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive tasarım için -->
+    <title>Task List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Yazı tipi */
+            background-color: #f4f4f4; /* Arka plan rengi */
+            margin: 0;
+            padding: 20px; /* Genel boşluk */
+            color: #333; /* Metin rengi */
+        }
+        h1, h2 {
+            color: #4CAF50; /* Başlık rengi */
+        }
+        ul {
+            list-style-type: none; /* Madde işareti yok */
+            padding: 0; /* İç boşluk yok */
+        }
+        li {
+            background-color: white; /* Beyaz arka plan */
+            padding: 15px; /* İç boşluk */
+            margin: 10px 0; /* Dış boşluk */
+            border-radius: 5px; /* Kenar yuvarlama */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 15px; /* İç boşluk */
+            margin: 5px; /* Dış boşluk */
+            border-radius: 5px; /* Kenar yuvarlama */
+            background-color: #4CAF50; /* Yeşil arka plan */
+            color: white; /* Beyaz yazı rengi */
+            text-decoration: none; /* Alt çizgi yok */
+            font-size: 16px; /* Yazı boyutu */
+            transition: background-color 0.3s; /* Geçiş efekti */
+        }
+        .button:hover {
+            background-color: #45a049; /* Hover efekti */
+        }
+        .logout-button {
+            background-color: #f44336; /* Kırmızı arka plan */
+        }
+        .logout-button:hover {
+            background-color: #e53935; /* Hover efekti */
+        }
+        .unavailability {
+            background-color: #fff3cd; /* Açık sarı arka plan */
+            border-left: 5px solid #ffeeba; /* Sol kenar rengi */
+            padding: 10px; /* İç boşluk */
+            margin: 10px 0; /* Dış boşluk */
+            border-radius: 5px; /* Kenar yuvarlama */
+        }
+        .no-unavailability {
+            font-style: italic; /* İtalik yazı stili */
+            color: #666; /* Gri renk */
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Tasks</h1>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <strong>{{ task.title }}</strong> - {{ task.description }} / {{ task.start_date }} - {{ task.end_date }}
+                <a href="{% url 'upload_document' task.id %}" class="button">Upload Document</a>
+            </li>
+        {% empty %}
+            <li>No tasks available.</li> <!-- Görev yoksa bilgi ver -->
+        {% endfor %}
+    </ul>
+
+    <br>
+
+    <h2>Your Unavailability</h2>
+
+    <!-- Button to go to set unavailability page -->
+    <a href="{% url 'set_unavailability' %}" class="button">Set Unavailability</a>
+
+    {% for unavailability in unavailability %}
+        <div class="unavailability">
+            <p>Date: {{ unavailability.start_date }} to {{ unavailability.end_date }}</p>
+        </div>
+    {% empty %}
+        <p class="no-unavailability">No unavailability set.</p>
+    {% endfor %}
+
+    <br>
+
+    <a href="{% url 'logout' %}" class="button logout-button">Logout</a>
+
+</body>
+</html>

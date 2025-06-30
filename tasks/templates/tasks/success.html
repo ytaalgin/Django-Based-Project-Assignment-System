@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Yazı tipi */
+            background-color: #e0f7fa; /* Açık mavi arka plan */
+            margin: 0;
+            padding: 40px; /* Genel boşluk */
+            color: #333; /* Metin rengi */
+            text-align: center; /* Ortalanmış metin */
+        }
+        h1 {
+            color: #4CAF50; /* Başlık rengi */
+            margin-bottom: 20px; /* Alt boşluk */
+        }
+        .message {
+            background-color: #ffffff; /* Mesaj kutusu arka planı */
+            padding: 20px; /* İç boşluk */
+            border-radius: 10px; /* Kenar yuvarlama */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Gölgeli kutu efekti */
+            display: inline-block; /* Mesaj kutusunu inline-block yap */
+            max-width: 500px; /* Maksimum genişlik */
+            margin: auto; /* Ortalamak için */
+        }
+        a {
+            display: inline-block; /* Blok olarak göster */
+            margin-top: 15px; /* Üst boşluk */
+            padding: 10px 15px; /* İç boşluk */
+            background-color: #4CAF50; /* Yeşil arka plan */
+            color: white; /* Beyaz yazı rengi */
+            text-decoration: none; /* Alt çizgi yok */
+            border-radius: 5px; /* Kenar yuvarlama */
+            transition: background-color 0.3s; /* Geçiş efekti */
+        }
+        a:hover {
+            background-color: #45a049; /* Hover efekti */
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <h1>Your Unavailability Has Been Successfully Recorded!</h1>
+        <a href="{% url 'task_list' %}">Back to Task List</a>
+    </div>
+</body>
+</html>

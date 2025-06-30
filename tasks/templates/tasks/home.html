@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #e0f7fa; /* Açık mavi arka plan */
+            font-family: Arial, sans-serif; /* Yazı tipi */
+        }
+        h1 {
+            color: #00695c; /* Başlık rengi */
+            margin: 20px 0; /* Alt ve üst boşluk */
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s; /* Geçiş efekti */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Gölge efekti */
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        img {
+            width: 50%; /* Logo boyutu %50 */
+            max-width: 500px; /* Maksimum genişlik */
+            margin-bottom: 20px; /* Alt boşluk */
+            border-radius: 10px; /* Kenar yuvarlama */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+        }
+        a {
+            text-decoration: none; /* Alt çizgi yok */
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+        <img src="{% static 'tasks/logo.png' %}" alt="Çelikkanat Logo">
+        <h1>Welcome to Çelikkanat RS Project Management System</h1>
+
+        <!-- Admin Login Button -->
+        <a href="{% url 'admin:index' %}">
+            <button>Admin Login</button>
+        </a>
+
+        <!-- User Login Button -->
+        <a href="{% url 'login' %}">
+            <button>User Login</button>
+        </a>
+    </div>
+</body>
+</html>

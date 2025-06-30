@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive tasarım için -->
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Açık gri arka plan */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ekranın tamamını kapla */
+        }
+        .container {
+            background-color: white; /* Beyaz arka plan */
+            padding: 20px;
+            border-radius: 8px; /* Kenarları yuvarlaştır */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+            width: 300px; /* Sabit genişlik */
+            text-align: center; /* Metni ortala */
+        }
+        h1 {
+            margin-bottom: 20px; /* Başlık altındaki boşluk */
+        }
+        p {
+            color: red; /* Hata mesajı rengi */
+        }
+        button {
+            background-color: #5cb85c; /* Yeşil buton */
+            color: white; /* Beyaz yazı rengi */
+            border: none; /* Kenarlık yok */
+            padding: 10px 15px; /* Buton içi boşluk */
+            border-radius: 5px; /* Kenarları yuvarlaştır */
+            cursor: pointer; /* İmleç işaretleyici */
+            transition: background-color 0.3s; /* Geçiş efekti */
+        }
+        button:hover {
+            background-color: #4cae4c; /* Hover efekti */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

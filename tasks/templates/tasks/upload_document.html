@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; /* Yazı tipi */
+            background-color: #f4f4f4; /* Arka plan rengi */
+            margin: 0;
+            padding: 20px; /* Genel boşluk */
+            color: #333; /* Metin rengi */
+        }
+        h1 {
+            color: #4CAF50; /* Başlık rengi */
+        }
+        form {
+            background-color: white; /* Form arka planı */
+            padding: 20px; /* İç boşluk */
+            border-radius: 5px; /* Kenar yuvarlama */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+            max-width: 500px; /* Maksimum genişlik */
+            margin: auto; /* Ortalamak için */
+        }
+        label {
+            display: block; /* Label'leri blok olarak göster */
+            margin-bottom: 10px; /* Alt boşluk */
+            font-weight: bold; /* Kalın yazı */
+        }
+        input[type="file"] {
+            margin-bottom: 20px; /* Alt boşluk */
+            border: 1px solid #ccc; /* Kenar rengi */
+            padding: 10px; /* İç boşluk */
+            border-radius: 5px; /* Kenar yuvarlama */
+            width: 100%; /* Tam genişlik */
+        }
+        button {
+            padding: 10px 15px; /* İç boşluk */
+            background-color: #4CAF50; /* Yeşil arka plan */
+            color: white; /* Beyaz yazı rengi */
+            border: none; /* Kenar yok */
+            border-radius: 5px; /* Kenar yuvarlama */
+            cursor: pointer; /* İmleci değiştir */
+            transition: background-color 0.3s; /* Geçiş efekti */
+        }
+        button:hover {
+            background-color: #45a049; /* Hover efekti */
+        }
+        a {
+            display: inline-block; /* Blok olarak göster */
+            margin-top: 15px; /* Üst boşluk */
+            color: #4CAF50; /* Renk */
+            text-decoration: none; /* Alt çizgi yok */
+            font-weight: bold; /* Kalın yazı */
+        }
+        a:hover {
+            text-decoration: underline; /* Hover efekti */
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Document for Task: {{ task.title }}</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+    <a href="{% url 'task_list' %}">Back to Task List</a>
+</body>
+</html>
